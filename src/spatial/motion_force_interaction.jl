@@ -172,6 +172,7 @@ Transform the `SpatialInertia` to a different frame.
     Y = X + transpose(X) + mp * transpose(p)
     Jnew = R * J * transpose(R) - Y + tr(Y) * I
 
+    T = promote_eltype(Jnew, mcnew, m) 
     SpatialInertia(t.to, Jnew, mcnew, m)
 end
 
